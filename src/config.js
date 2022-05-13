@@ -22,7 +22,6 @@ iptables -A INPUT -p udp -m udp --dport 51820 -j ACCEPT;
 iptables -A FORWARD -i wg0 -j ACCEPT;
 iptables -A FORWARD -o wg0 -j ACCEPT;
 iptables -I FORWARD -i wg0 -o wg0 -j REJECT;
-ip6tables -I FORWARD -i wg0 -o wg0 -j REJECT;
 `.split('\n').join(' ');
 
 module.exports.WG_POST_DOWN = process.env.WG_POST_DOWN || '';
